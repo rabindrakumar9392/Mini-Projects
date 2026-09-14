@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Haircut Service | Rabindra Kumar</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+    <h1>💈 Home Haircut Service</h1>
+    <p>Professional Grooming at Your Doorstep 🚀</p>
+</header>
+
+<h2 style="margin-top:40px;">🔥 Choose Your Style</h2>
+<div class="container" id="styles"></div>
+
+<div class="form">
+    <h2>📅 Quick Booking</h2>
+    <input type="text" id="name" placeholder="Aapka Naam">
+    <input type="text" id="address" placeholder="Aapka Address"><br>
+    
+    <select id="service">
+        <option value="Haircut">Haircut - ₹199</option>
+        <option value="Beard Trim">Beard Trim - ₹99</option>
+        <option value="Haircut + Beard">Combo (Hair + Beard) - ₹249</option>
+    </select>
+    <input type="time" id="time"><br><br>
+    
+    <button onclick="book()">Book on WhatsApp ✅</button>
+    <p id="msg" style="margin-top:15px;"></p>
+</div>
+
+<footer>
+    &copy; 2026 Home Barber Service | Created by Rabindra Kumar
+</footer>
+
+
+
+<button onclick="getLocation()">📍 Auto Detect Location</button>
+<p id="locationText"></p>
+
+
+
+
+
+
+
+<script src="script.js"></script>
+
+</body>
+</html>
