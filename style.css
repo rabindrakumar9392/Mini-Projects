@@ -1,0 +1,134 @@
+ :root {
+            --gold: #ffcc00;
+            --bg: #0a0a0a;
+            --accent: #00d2ff;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+
+        body::before {
+  content: "";
+  position: fixed;
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(circle, #00d2ff55, transparent);
+  border-radius: 50%;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+}
+
+        
+
+        header {
+            text-align: center;
+            padding: 100px 20px;
+            border-bottom: 2px solid var(--gold);
+            background: url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1500') center/cover;
+            background-attachment: fixed;
+            position: relative;
+        }
+
+        header::after {
+            content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.7); z-index: 1;
+        }
+
+        header h1, header p { position: relative; z-index: 2; }
+
+        header h1 {
+            font-size: 4rem;
+            color: var(--gold);
+            letter-spacing: 15px;
+            text-shadow: 0 0 20px rgba(255, 204, 0, 0.6);
+            margin-bottom: 10px;
+        }
+
+        header p { font-size: 1.5rem; color: #ddd; letter-spacing: 2px; }
+
+        .container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+            padding: 60px 5%;
+            max-width: 1400px;
+            margin: auto;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+        }
+
+        .card:hover {
+            transform: translateY(-20px);
+            border-color: var(--gold);
+            box-shadow: 0 15px 40px rgba(255, 204, 0, 0.2);
+        }
+
+        .card img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            filter: grayscale(100%);
+            transition: 0.5s;
+        }
+
+        .card:hover img { filter: grayscale(0%); }
+
+        .card-title {
+            position: absolute;
+            bottom: 0; width: 100%;
+            padding: 25px;
+            background: linear-gradient(transparent, rgba(0,0,0,0.9));
+            text-align: center;
+            font-size: 1.6rem;
+            color: var(--gold);
+            font-weight: bold;
+        }
+
+        /* Modal Settings */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0; top: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.96);
+            backdrop-filter: blur(12px);
+            overflow-y: auto;
+        }
+
+        .modal-content {
+            background: #111;
+            margin: 5% auto;
+            padding: 50px;
+            width: 90%;
+            max-width: 800px;
+            border-radius: 30px;
+            border: 1px solid var(--gold);
+            position: relative;
+            box-shadow: 0 0 50px rgba(255, 204, 0, 0.1);
+        }
+
+        .close {
+            position: absolute; right: 30px; top: 20px;
+            font-size: 45px; color: var(--gold); cursor: pointer;
+        }
+
+        .modal h2 { font-size: 2.8rem; color: var(--gold); margin-bottom: 25px; border-bottom: 2px solid #222; }
+
+        .bio-list { list-style: none; }
+        .bio-list li {
+            font-size: 1.15rem; margin-bottom: 12px; color: #eee;
+            padding-left: 25px; position: relative;
+        }
+        .bio-list li::before {
+            content: "✦"; position: absolute; left: 0; color: var(--gold);
+        }
+
+        footer { text-align: center; padding: 60px; color: #555; border-top: 1px solid #111; }
+   
