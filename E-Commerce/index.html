@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyStore</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav>
+        <div class="logo">🛍️ <span>MyStore</span></div>
+
+        <ul id="navLinks">
+            <li onclick="goHome()">🏠 Home</li>
+
+            <li onmouseover="showProductDropdown()" onmouseleave="hideProductDropdown()">
+                📦 Products
+                <div class="nav-dropdown" id="productDropdown"></div>
+            </li>
+
+          
+            <li>
+                <div class="search-box">
+                    <input type="text" id="searchInput" placeholder="Search products..." />
+                    <button onclick="handleSearch(event)">🔍</button>
+                    <div class="search-dropdown" id="searchDropdown"></div>
+                </div>
+            </li>
+
+         
+            <li>
+                <button class="cartBtn" onclick="openCart()">
+                    🛒 Cart <span class="badge" id="badge">0</span>
+                </button>
+            </li>
+
+          
+            <li style="color:#3b82f6;font-weight:bold;" id="authNavLink" onclick="openAuth('login')">Login</li>
+        </ul>
+
+        <div class="hamburger" onclick="toggleMenu()">☰</div>
+    </nav>
+
+  
+    <div id="mobileMenu">
+        <li onclick="goHome(); toggleMenu()">🏠 Home</li>
+        <li onclick="document.querySelector('.container').scrollIntoView({behavior:'smooth'}); toggleMenu()">📦 Products</li>
+        <li>
+            <div class="search-box" style="background:#334155; padding:4px 10px; border-radius:30px; width:100%;">
+                <input type="text" id="mobileSearchInput" placeholder="Search products..." style="background:transparent; border:none; color:white; padding:6px 0; outline:none; width:100%;" />
+                <button onclick="handleSearch(event)" style="background:none; border:none; color:#94a3b8; font-size:18px; cursor:pointer;">🔍</button>
+            </div>
+        </li>
+        <li>
+            <button class="cartBtn" onclick="openCart(); toggleMenu()">
+                🛒 Cart <span class="badge" id="mobileBadge">0</span>
+            </button>
+        </li>
+        <li style="color:#3b82f6;font-weight:bold;" onclick="openAuth('login'); toggleMenu()" id="mobileAuthLink">Login</li>
+    </div>
+
+   
+    <div id="carousel">
+        <div class="track" id="track">
+            <div class="s1">🔥 Summer Sale!<p>Up to 50% off on electronics</p></div>
+            <div class="s2">✨ New Arrivals<p>Check out our latest collection</p></div>
+            <div class="s3">🚀 Free Shipping<p>On orders above ₹499</p></div>
+        </div>
+        <button class="carBtn prev" onclick="prevSlide()">❮</button>
+        <button class="carBtn next" onclick="nextSlide()">❯</button>
+        <div id="dots">
+            <span class="active" onclick="goSlide(0)">•</span>
+            <span onclick="goSlide(1)">•</span>
+            <span onclick="goSlide(2)">•</span>
+        </div>
+    </div>
+
+    
+    <div class="container">
+        <div class="section-title">
+            🔥 All Products
+            <small id="productCount">6 items</small>
+        </div>
+        <div class="productGrid" id="productGrid"></div>
+    </div>
+
+   
+    <div class="cartOverlay" id="cartOverlay" onclick="closeCart()"></div>
+    <div class="cartSidebar" id="cartSidebar">
+        <div class="cartHeader">
+            <h2>🛒 Your Cart</h2>
+            <button class="closeCart" onclick="closeCart()">✕</button>
+        </div>
+        <div class="cartItems" id="cartItems">
+            <div class="cartEmpty"><span>🛍️</span>Cart is empty</div>
+        </div>
+        <div class="cartFooter">
+            <div class="cartTotal">
+                <span>Total:</span>
+                <span id="cartTotal">₹0.00</span>
+            </div>
+            <button class="checkoutBtn" onclick="checkout()">✅ Checkout</button>
+            <button class="clearBtn" onclick="clearCart()">Clear Cart</button>
+        </div>
+    </div>
+
+   
+    <div class="authModal" id="authModal">
+        <div class="authBox" id="authBox">
+            <button class="closeAuth" onclick="closeAuth()">✕</button>
+            <h2 id="authTitle">Account Login</h2>
+            <form id="authForm" onsubmit="handleAuth(event)">
+                <div id="authFields">
+                    <div class="inputGroup">
+                        <label>Username / Email</label>
+                        <input type="text" id="authEmail" placeholder="Enter username or email" required />
+                    </div>
+                    <div class="inputGroup">
+                        <label>Password</label>
+                        <input type="password" id="authPassword" placeholder="Enter password" required />
+                    </div>
+                </div>
+                <div id="registerFields" style="display:none;">
+                    <div class="inputGroup">
+                        <label>Full Name</label>
+                        <input type="text" id="regName" placeholder="Your full name" />
+                    </div>
+                    <div class="inputGroup">
+                        <label>Confirm Password</label>
+                        <input type="password" id="regConfirm" placeholder="Confirm password" />
+                    </div>
+                    <div class="checkboxGroup">
+                        <input type="checkbox" id="regTerms" required />
+                        <label for="regTerms">I agree to the Terms &amp; Privacy Policy</label>
+                    </div>
+                </div>
+                <button type="submit" class="authBtn" id="authSubmitBtn">Sign In</button>
+                <div class="authSwitch">
+                    <span id="authSwitchText">Don't have an account?</span>
+                    <a id="authSwitchLink" onclick="toggleAuth()">Sign Up</a>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    
+    <div class="toast" id="toast"></div>
+
+ 
+    <footer>
+        &copy; 2026 <span>MyStore</span> — Built with ❤️
+    </footer>
+
+</body>
+<script src="script.js"></script>
+
+</html>
