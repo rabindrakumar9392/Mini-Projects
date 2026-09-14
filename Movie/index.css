@@ -1,0 +1,10 @@
+#navbar{
+      background-color: bisque;
+      height: 100px;
+      width: 100%;
+      display: flex;
+      justify-content: space-around;
+    }
+    #navbar > a{
+      font-size: 40px;
+    }

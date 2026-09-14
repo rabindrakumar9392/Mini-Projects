@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./form.css">
+  <link rel="stylesheet" href="./index.css">
+</head>
+<body>
+  <div id="navbar"></div>
+  <form action="">
+    <input type="text" placeholder="Enter your mobile">
+    <input type="password" placeholder="Enter your password">
+    <button>LOGIN</button>
+    <p>Don't hava account <span><a href="./register.html">Create Account</a></span></p>
+  </form>
+</body>
+<script src="nav.js"></script>
+<script>
+  let users = JSON.parse(localStorage.getItem("users"));
+
+  let form = document.querySelector("form");
+
+  form.addEventListener("submit", (event)=>{
+    event.preventDefault();
+    
+    let obj = {
+      mobile : form.elements[0].value,
+      password: form.elements[1].value
+    }
+    console.log(obj)
+
+    let user = users.find((value)=>{
+      if(value.password == obj.password && value.mobile == obj.mobile){
+        return value;
+      }
+    })
+
+    if(user == null){
+      alert("user not found")
+    }
+    else{
+      console.log(user);
+      localStorage.setItem("currUser", JSON.stringify(user));
+    }
+  })
+</script>
+</html>

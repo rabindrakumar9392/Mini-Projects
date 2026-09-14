@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="navbar">
+
+  </div>
+  <h1>My Movie</h1>
+  <div id="container">
+
+  </div>
+</body>
+<script src="nav.js">
+
+</script>
+<script>
+
+  let movie = JSON.parse(localStorage.getItem("movie"));
+console.log(movie)
+
+function createCard(movie) {
+  let card = document.createElement("div");
+  let movieImage = document.createElement("img");
+  movieImage.setAttribute("src", movie.image)
+  let movieName = document.createElement("h2");
+  movieName.innerText = movie.movieName;
+  let ageLimit = document.createElement("p");
+  ageLimit.innerText = movie.ageLimit;
+  let language = document.createElement("p");
+  language.innerText = movie.language;
+
+  let viewMore = document.createElement("button");
+  viewMore.innerText = "ADD TO CART";
+
+  viewMore.addEventListener("click", ()=>{
+    console.log(movie);
+
+    localStorage.setItem("movie", JSON.stringify(movie));
+
+    window.location.href = "http://127.0.0.1:5500/Dom/viewMore.html";
+  })
+
+  card.append(movieImage, movieName, ageLimit, language, viewMore);
+  container.append(card);
+}
+
+createCard(movie);
+
+</script>
+</html>

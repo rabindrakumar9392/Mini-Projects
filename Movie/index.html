@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="index.css">
+  <style>
+    *{
+      box-sizing: border-box;
+      padding: 0px;
+      margin: 0px;
+    }
+    #container{
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+    .movie > img{
+      width: 100%;
+      max-height: 300px;
+    }
+    .movie{
+      height: 500px;
+      border: 1px solid gray;
+      border-radius: 10px;
+      padding: 20px;
+    }
+    button{
+      background-color: red;
+      color: white;
+      font-size: 20px;
+      border-radius: 20px;
+      border: none;
+      padding: 10px;
+      margin-right: 20px;
+    }
+    p{
+      font-size: 20px;
+      line-height: 30px;
+    }
+    #options{
+      display: flex;
+      justify-content: center;
+      height: 100px;
+    }
+  </style>
+</head>
+<body>
+  <div id="navbar">
+  </div>
+
+  <div id="options">
+    <Select>
+      <option >SORT</option>
+      <option value="price_asc">SORT BY PRICE ASC</option>
+      <option value="price_desc">SORT BY PRICE DESC</option>
+      <option value="name_asc">SORT BY NAME ASC</option>
+      <option value="name_desc">SORT BY NAME DESC</option>
+      <option value="reset">RESET</option>
+    </Select>
+
+    <select id="filter">
+      <option value="">AGE LIMIT</option>
+      <option value="ua13+">UA13+</option>
+      <option value="a">A</option>
+      <option value="ua7+">UA7+</option>
+      <option value="u">U</option>
+      <option value="reset">RESET</option>
+    </select>
+  </div>
+
+  <div id="container">
+
+  </div>
+</body>
+<script src="nav.js"></script>
+<script src="index.js">
+</script>
+</html>

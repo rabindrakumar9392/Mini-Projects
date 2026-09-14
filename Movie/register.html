@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./form.css">
+  <link rel="stylesheet" href="./index.css">
+</head>
+<body>
+  <div id="navbar">
+
+  </div>
+  <form action="">
+    <input type="text" placeholder="Enter your Name">
+    <input type="text" placeholder="Enter your password">
+    <input type="text" placeholder="Enter your mobile number">
+    <button>REGISTER</button>
+  </form>
+</body>
+<script src="nav.js">
+
+</script>
+
+<script>
+  let form = document.querySelector("form");
+  let users = JSON.parse(localStorage.getItem("users")) || [];
+
+  form.addEventListener("submit", (event)=>{
+    event.preventDefault();
+    
+    let obj = {
+      username : form.elements[0].value,
+      password: form.elements[1].value,
+      mobile: form.elements[2].value,
+      cart: []
+    }
+
+    users.push(obj);
+    localStorage.setItem("users", JSON.stringify(users));
+    console.log(users);
+
+  })
+</script>
+</html>
